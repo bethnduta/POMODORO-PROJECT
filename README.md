@@ -4,7 +4,7 @@
 - JAMES NJOROGE
 - BETH NDUTA
 
-PROJECT DESCRIPTION
+## PROJECT DESCRIPTION
 As a user I would like to;
 * Log in to the application
 * Set the amount of time I want to work. It should not be more than an hour
