@@ -21,3 +21,22 @@ h1{
     /*text-align: center;
     margin-top: 22%; */
 }
+
+nav ul li{
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav ul li:hover{
+    color:red;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 4px 5px;
+    justify-content: space-between;
+    display: inline-block;
+}
