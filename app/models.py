@@ -1,5 +1,6 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 class User(db.Model):
 
@@ -24,4 +25,15 @@ class User(db.Model):
         db.session.commit()
 
     def __repr__(self):
-        return f'{self.username} {self.pitches}'
+        return f'{self.username}'
+
+class WorkTime(db.Model):
+
+    __tablename__ = 'work_time'
+
+    id = db.Column(db.Integer, primary_key = True)
+    current_time = db.Column(db.DateTime, default = datetime.now)
+    time_chosen = db.Column(db.String(255))
+
+    def __repr__(self):
+        return f'{self.current_time}'
