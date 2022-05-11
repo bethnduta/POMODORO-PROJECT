@@ -1,3 +1,7 @@
+## POMODORO PROJECT
+![image](https://user-images.githubusercontent.com/85553801/167769610-0a7e0bb1-b65d-478e-a83d-ff48160aca44.png)
+
+
 ## AUTHOR
 - **SAMUEL ODAK**
 - **IVY JEPTOO**
