@@ -1,7 +1,12 @@
+from . import main
 from flask import render_template
-from .import main
 
 
 @main.route('/')
 def home():
-    return render_template("home.html")
+    return render_template('home.html')
+     
+     
+@main.route('/work')
+def work(): 
+    return render_template('work.html') 
