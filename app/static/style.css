@@ -43,7 +43,8 @@ nav ul li a{
 }
 
 #container{
-    background-color: #696866;
+    /* background-color: #696866; */
+    background-color: rgba(128, 128, 128, 0.5);
     margin: 0 auto;
     border: 5px solid #888169;
     display: grid;
@@ -74,7 +75,7 @@ nav ul li a{
     grid-area: 2/4/2/4;
 }
 
-.btn{
+.btnn{
     border-radius: 50px;
     align-self: center;
     justify-self: center ;
