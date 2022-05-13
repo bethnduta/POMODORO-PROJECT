@@ -1,9 +1,11 @@
 {% extends 'base.html' %} {% block body %}
 
 <h1 class="text-center">Pomodoro Timer</h1>
-<hr>
-<h4 class="text-center"><a class="text-center" href="#s-form">Set Sessions</a></h4>
-<hr>
+<hr />
+<h4 class="text-center">
+  <a class="text-center" href="#s-form">Set Sessions</a>
+</h4>
+<hr />
 <div id="container">
   <p id="work" class="label">Work:</p>
   <p id="break" class="label">Break:</p>
@@ -11,7 +13,7 @@
   <!--Work Timer-->
   <div id="work-timer" class="timer">
     {% if w_time %}
-    <p id="w_minutes">{{w-minutes}}</p>
+    <p id="w_minutes">{{w_time}}</p>
     {% else%}
     <p id="w_minutes">30</p>
     {% endif %}
@@ -25,7 +27,7 @@
   <!--Break Timer-->
   <div id="break-timer" class="timer">
     {% if b_time %}
-    <p id="b_minutes">{{b-minutes}}</p>
+    <p id="b_minutes">{{b_time}}</p>
     {% else%}
     <p id="b_minutes">10</p>
     {% endif %}
@@ -38,28 +40,7 @@
   <button id="reset" class="btn btn-danger btnn">Reset</button> -->
 </div>
 
-<div class="form">
-  <form action="{{url_for('main.timer')}}" method="post">
-    <div>
-      <label for="w-minutes">
-        <h3>select work time</h3>
-        <span>Minutes</span>
-        <input type="number" name="w-minutes" id="w-minutes" />
-      </label>
-    </div>
-    <div>
-      <label for="b-minutes">
-        <h3>select break time</h3>
-        <span>Minutes</span>
-        <input type="number" name="b-minutes" id="b-minutes" />
-      </label>
-    </div>
-    <br />
-    <input type="submit" value="start" />
-  </form>
-</div>
-
-<form id="s-form">
+<form id="s-form" action="{{url_for('main.timer')}}" method="post">
   <h3 align="centre">Sessions Setter</h3>
   <div class="form-group">
     <label for="work">Enter work session time(minutes)</label>
@@ -82,10 +63,6 @@
       min="5"
       max="10"
     />
-  </div>
-  <div class="form-group">
-    <label for="break-activity">Enter what to do in break sessions</label>
-    <textarea name="break-a" id="break-a" cols="30" rows="10"></textarea>
   </div>
   <br />
   <button type="submit" class="btn btn-dark">Submit</button>

@@ -31,20 +31,19 @@ def tempsignup():
 @main.route('/timer', methods=['POST', 'GET'])
 def timer():
     if request.method == 'POST':
-        session['work-time'] = request.form['w-minutes']
-        session['break-time'] = request.form['b-minutes']
+        session['work-time'] = request.form['w-session']
+        session['break-time'] = request.form['b-session']
         session['session'] = 0
-        return "this is a post request"
-        return redirect(url_for('main.work', w_time=session.get('work-time'), b_time=session.get('break-time'), sessions=session.get('session')))
+        return render_template('work.html', w_time=session.get('work-time'), b_time=session.get('break-time'), sessions=session.get('session'))
     else:
-        return "this is a get request"
-
+        return redirect(url_for('main.work'))
 
 
 
 @main.route('/signup', methods=['POST', 'GET'])
 def signup():
     if request.method == 'POST':
+        print(request.form["username"], request.form["s-password"], request.form["s-email"] )
         present_user = User.query.filter_by(username=request.form['username']).first()
         if present_user:
             print("user exists")
@@ -70,14 +69,11 @@ def login():
                 return redirect(url_for('main.work'))
             else:
                 # add password or username wrong flash message
-                return "user doesn't exist"
                 return redirect(url_for('main.home'))
         else:
              # add signup flashmessage
-            return "login not successful"
             return redirect(url_for('main.home'))
     else:
-        return "this is a get request"
         return redirect(url_for('main.home'))
 
 
