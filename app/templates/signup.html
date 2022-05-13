@@ -1,29 +1,43 @@
-{% extends 'base.html' %} {% block title%}signup{%endblock%}
-{% block styles %}
+{% extends 'base.html' %} {% block title%}signup{%endblock%} {% block styles %}
 <link href="{{url_for('static',filename='css/login.css')}}" rel="stylesheet" />
-{% endblock %}
-{% block body%}
-<form method="POST">
-    <h3 align="centre">Sign Up</h3>
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="">
-    </div>
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="">
-    </div>
-    <div class="form-group">
-        <label for="password1">Password</label>
-        <input type="password" class="form-control" id="password1" name="password1" placeholder="">
-    </div>
-    <div class="form-group">
-        <label for="password2">Confirm Password</label>
-        <input type="password" class="form-control" id="password2" name="password2" placeholder="">
-    </div>
-    <br>
-    <button type="submit" class="btn btn-dark">Sign Up</button>
-    <hr>
-    <span color="white"> Already have an account? <a href="/login">Login</a></span>
+{% endblock %} {% block body%}
+<form action="{{url_for('main.signup')}}" method="post">
+  <h3 align="centre">Sign Up</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="s-email"
+      name="s-email"
+      placeholder="example@email.com"
+    />
+  </div>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder=""
+    />
+  </div>
+  <div class="form-group">
+    <label for="s-password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="s-password"
+      name="s-password"
+      placeholder="password"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-dark">Sign Up</button>
+  <hr />
+  <span color="white">
+    Already have an account? <a href="/login">Login</a></span
+  >
 </form>
 {% endblock%}

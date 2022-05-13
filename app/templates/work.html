@@ -1,30 +1,29 @@
-{% extends 'base.html' %}
-
-{% block body %}
+{% extends 'base.html' %} {% block body %}
 
 <h1>Pomodoro Timer</h1>
-    <div id="container">
-        <p id="work" class="label">Work:</p><p id="break" class="label">Long Break:</p><p id="short" class="label">Short Break:</p><p id="sessions" class="label">Work Sessions:</p>
-        <!--Work Timer-->
-        <div id="work-timer" class="timer">
-            <p id="w_minutes">50</p><p class="semicolon">:</p><p id="w_seconds">00</p>
-        </div>
+<div id="container">
+  <p id="work" class="label">Work:</p>
+  <p id="break" class="label">Break:</p>
+  <p id="sessions" class="label">Work Sessions:</p>
+  <!--Work Timer-->
+  <div id="work-timer" class="timer">
+    <p id="w_minutes">30</p>
+    <p class="semicolon">:</p>
+    <p id="w_seconds">00</p>
+  </div>
 
-        <!--Cycle Counter-->
-        <p id="counter" class="timer">0</p>
+  <!--Cycle Counter-->
+  <p id="counter" class="timer">0</p>
 
-        <!--Break Timer-->
-        <div id="break-timer" class="timer">
-            <p id="b_minutes">10</p><p class="semicolon">:</p><p id="b_seconds">00</p>
-        </div>
+  <!--Break Timer-->
+  <div id="break-timer" class="timer">
+    <p id="b_minutes">10</p>
+    <p class="semicolon">:</p>
+    <p id="b_seconds">00</p>
+  </div>
 
-        <div id="short-timer" class="timer">
-            <p id="s_minutes">05</p><p class="semicolon">:</p><p id="b_seconds">00</p>
-        </div>
-
-        
-        <button id="start" class="btn btn-success btnn">Start</button>
-        <button id="stop" class="btn btn-secondary btnn">Pause</button>
-        <button id="reset" class="btn btn-danger btnn">Reset</button>
-    </div>
+  <button id="start" class="btn btn-success btnn">Start</button>
+  <button id="stop" class="btn btn-secondary btnn">Pause</button>
+  <button id="reset" class="btn btn-danger btnn">Reset</button>
+</div>
 {% endblock %}

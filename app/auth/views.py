@@ -1,6 +1,7 @@
+from crypt import methods
 from flask import render_template
 from flask import render_template
-from .import auth
+from . import auth
 
 @auth.route('/login')
 def login():

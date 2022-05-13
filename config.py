@@ -1,6 +1,7 @@
 class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = "dhflkjahskjfsadf"
 
     @staticmethod
     def init_app(app):
@@ -12,7 +13,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:jimi@localhost/pomodoro'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://samuel:samuel@localhost:5432/pomodoro'
 
     DEBUG = True
 
