@@ -39,7 +39,7 @@ def signup():
             # add a flash message that a user exists
             return redirect(url_for('main.home'))
         else:
-            user = User(username=request.form["username"], passwd=generate_password_hash(request.form["s-password"]))
+            user = User(username=request.form["username"], passwd=generate_password_hash(request.form["s-password"]), email=request.form["s-email"])
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('main.work'))
@@ -53,16 +53,19 @@ def login():
     if request.method == 'POST':
         user = User.query.filter_by(email=request.form['l-email']).first()
         if user:
-            if check_password_hash(user.password, request.form['l-password']) == True:
-                session["user"] = user.name
-                return redirect(url_for('user', username = user.name), code=307)
+            if check_password_hash(user.passwd, request.form['l-password']):
+                session["user"] = user.username
+                return redirect(url_for('main.work'))
             else:
                 # add password or username wrong flash message
+                return "user doesn't exist"
                 return redirect(url_for('main.home'))
         else:
              # add signup flashmessage
+            return "login not successful"
             return redirect(url_for('main.home'))
     else:
+        return "this is a get request"
         return redirect(url_for('main.home'))
 
 
