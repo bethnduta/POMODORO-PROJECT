@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block body %}
 
-<h1>Pomodoro Timer</h1>
+<h1 class="text-center">Pomodoro Timer</h1>
+<hr>
+<h4 class="text-center"><a class="text-center" href="#s-form">Set Sessions</a></h4>
+<hr>
 <div id="container">
   <p id="work" class="label">Work:</p>
   <p id="break" class="label">Break:</p>
@@ -26,4 +29,37 @@
   <button id="stop" class="btn btn-secondary btnn">Pause</button>
   <button id="reset" class="btn btn-danger btnn">Reset</button>
 </div>
+
+<form id="s-form">
+  <h3 align="centre">Sessions Setter</h3>
+  <div class="form-group">
+    <label for="work">Enter work session time(minutes)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="w-session"
+      name="w-session"
+      min="10"
+      max="60"
+    />
+  </div>
+  <div class="form-group">
+    <label for="break">Enter Break Session time(minutes)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="b-session"
+      name="b-session"
+      min="5"
+      max="10"
+    />
+  </div>
+  <div class="form-group">
+    <label for="break-activity">Enter what to do in break sessions</label>
+    <textarea name="break-a" id="break-a" cols="30" rows="10"></textarea>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+
 {% endblock %}

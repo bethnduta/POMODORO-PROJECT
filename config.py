@@ -13,7 +13,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://samuel:samuel@localhost:5432/pomodoro'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://moringa:jimi@localhost:5432/pomodoro'
 
     DEBUG = True
 
