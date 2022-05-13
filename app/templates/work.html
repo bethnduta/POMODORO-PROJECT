@@ -7,7 +7,11 @@
   <p id="sessions" class="label">Work Sessions:</p>
   <!--Work Timer-->
   <div id="work-timer" class="timer">
+    {% if w_time %}
+    <p id="w_minutes">{{w-minutes}}</p>
+    {% else%}
     <p id="w_minutes">30</p>
+    {% endif %}
     <p class="semicolon">:</p>
     <p id="w_seconds">00</p>
   </div>
@@ -17,13 +21,38 @@
 
   <!--Break Timer-->
   <div id="break-timer" class="timer">
+    {% if b_time %}
+    <p id="b_minutes">{{b-minutes}}</p>
+    {% else%}
     <p id="b_minutes">10</p>
+    {% endif %}
     <p class="semicolon">:</p>
     <p id="b_seconds">00</p>
   </div>
 
-  <button id="start" class="btn btn-success btnn">Start</button>
+  <!-- <button id="start" class="btn btn-success btnn">Start</button>
   <button id="stop" class="btn btn-secondary btnn">Pause</button>
-  <button id="reset" class="btn btn-danger btnn">Reset</button>
+  <button id="reset" class="btn btn-danger btnn">Reset</button> -->
+</div>
+
+<div class="form">
+  <form action="{{url_for('main.timer')}}" method="post">
+    <div>
+      <label for="w-minutes">
+        <h3>select work time</h3>
+        <span>Minutes</span>
+        <input type="number" name="w-minutes" id="w-minutes" />
+      </label>
+    </div>
+    <div>
+      <label for="b-minutes">
+        <h3>select break time</h3>
+        <span>Minutes</span>
+        <input type="number" name="b-minutes" id="b-minutes" />
+      </label>
+    </div>
+    <br />
+    <input type="submit" value="start" />
+  </form>
 </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-from crypt import methods
+
 from . import main
 from flask import render_template, url_for, redirect, request, session
 from app import db
@@ -26,6 +26,18 @@ def templogin():
 @main.route('/user-signup')
 def tempsignup(): 
     return render_template('signup.html') 
+
+
+@main.route('/timer', methods=['POST', 'GET'])
+def timer():
+    if request.method == 'POST':
+        session['work-time'] = request.form['w-minutes']
+        session['break-time'] = request.form['b-minutes']
+        session['session'] = 0
+        return "this is a post request"
+        return redirect(url_for('main.work', w_time=session.get('work-time'), b_time=session.get('break-time'), sessions=session.get('session')))
+    else:
+        return "this is a get request"
 
 
 
